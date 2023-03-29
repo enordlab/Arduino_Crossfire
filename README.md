@@ -7,18 +7,19 @@ example/FlightSimulatorTBS
 - TBS Crossfire simulator usb dongle.
 - Joystick Library : https://github.com/MHeironimus/ArduinoJoystickLibrary
 - a32u4 based Arduino board is used to config USB HID.
-
+- Youtube : https://www.youtube.com/watch?v=gVdIRlaZiAA
 
 ## Basic Installation
 
 ```
 $ cd <arduino-sketchbook>/libraries
-$ git clone https://github.com/doojinkang/Arduino_Crossfire.git
+$ git clone https://github.com/enordlab/Arduino_Crossfire.git
 ```
 
 ## About SBUS, CSRF Protocol
 
 SBUS protocol baud rate is 100,000. and signal is inverted.
+
 SBUS frame is 25bytes.
 
 - Byte[0]: SBUS header, 0x0F
@@ -31,7 +32,9 @@ SBUS frame is 25bytes.
 - Byte[24]: SBUS footer
 
 CrossFire Protocol baud rate is 420,000. not inverted.
+
 CSRF frame length depends on Framd ID : 26bytes fpr CHANNELS_ID, 12bytes for LINK_ID.
+
 CSRF protocol is used for both RX and TX : radio and telemetry.
 
 - Byte[0]: Device Address
@@ -56,6 +59,8 @@ CSRF protocol is used for both RX and TX : radio and telemetry.
 
 
 The program filters the RX stream starting with C8 18 16 as address, length, frame id.
+
 Others are ignored.
+
 The program ignores CRC8 value.
 
